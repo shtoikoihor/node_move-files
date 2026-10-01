@@ -29,10 +29,17 @@ function moveFile(from, destination) {
 
   const file = path.basename(from);
   const finalPath = isDirectory ? path.join(destination, file) : destination;
+  const parentDir = path.dirname(finalPath);
+  const isParentDirExist = fs.existsSync(parentDir);
+  const isParentDir = isParentDirExist && fs.statSync(parentDir).isDirectory();
+
+  if (!isParentDir) {
+    return console.error("Parent directory doesn't exist");
+  }
 
   fs.rename(from, finalPath, (err) => {
     if (err) {
-      return console.error('Incorrect name');
+      return console.error(err);
     }
   });
 }
