@@ -11,7 +11,7 @@ const util = require('util');
 const execAsync = util.promisify(exec);
 
 describe('File Move Tests', () => {
-  const basePath = 'node src/app.js';
+  const basePath = 'node src/index.js';
   const testContent = faker.lorem.paragraphs();
   const testFileName = faker.system.commonFileName('txt');
 

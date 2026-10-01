@@ -17,9 +17,9 @@ function moveFile(from, destination) {
     return console.error('Is not a file');
   }
 
-  const isDierctoryExist = fs.existsSync(destination);
+  const isDirectoryExist = fs.existsSync(destination);
   const isDirectory =
-    isDierctoryExist && fs.statSync(destination).isDirectory();
+    isDirectoryExist && fs.statSync(destination).isDirectory();
 
   const endsWithSlash = destination.endsWith('/');
 
